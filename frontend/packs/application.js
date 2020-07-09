@@ -7,7 +7,7 @@
 // require("turbolinks").start()
 // require("@rails/activestorage").start()
 // require("channels")
-import 'core-js/stable'
+import "bootstrap/js/src/index"
 
 import JQuery from 'jquery';
 window.$ = window.JQuery = JQuery;

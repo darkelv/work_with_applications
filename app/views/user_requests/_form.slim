@@ -1,0 +1,12 @@
+= simple_form_for [user_request], wrapper: :horizontal_form, html: {class: 'form-horizontal'} do |f|
+  .card
+    .card-body
+      = f.input :title, label: "Заголовок"
+      = f.input :body, label: "Обращение"
+      - if user_request.files.any?
+        = render 'attachments/attachment', resource: user_request
+      .row
+        .col-auto.mr-auto
+          = f.file_field :files, multiple: true
+        .col-auto
+          = f.button :submit, label: "Отправить", class: "btn btn-primary"

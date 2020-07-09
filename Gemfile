@@ -30,6 +30,10 @@ gem 'simple_form'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+gem 'factory_bot_rails'
+gem 'bootstrap4-kaminari-views'
+gem 'kaminari'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -43,6 +47,7 @@ group :development, :test do
   gem "pry-stack_explorer" # show-stack in console
   gem 'pry-byebug' # step, next, finish, continue, break
 
+  gem 'faker'
   gem 'awesome_print' # nice inspection in console
 end
 
@@ -54,6 +59,11 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
+end
+
+group :test do
+  gem 'rails-controller-testing'
+  gem 'shoulda-matchers'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
