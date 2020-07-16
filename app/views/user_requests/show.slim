@@ -1,0 +1,21 @@
+.card
+  .card-header
+    h4
+      | Заявка пользователя
+  .card-body
+    .table-responsive.table-responsive-sm
+      table.table.table-hover.table-skyey.text-small
+        tbody
+          tr
+            td Заголовок
+            td= user_request.title
+          tr
+            td Обращение
+            td= user_request.body
+          tr
+            td Вложения
+            td
+              = render 'attachments/attachment', resource: user_request
+  .card-footer
+    = link_to "Перейти к списку", user_requests_path
+

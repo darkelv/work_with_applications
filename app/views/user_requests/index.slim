@@ -1,0 +1,35 @@
+.card
+  .card-header
+    | Список заявок
+  .card-body
+    table.table-bordered.table-striped.table-lg
+      thead.thead-light
+        tr
+          th = "№"
+          th = "Заголовок"
+          th = "Teкст"
+          th = "Создана"
+          th = "Обновлена"
+          th
+      tbody
+        - user_requests.each do |user_request|
+          tr
+            td = link_to user_request.id, user_request_path(user_request.id)
+            td = user_request.title
+            td = user_request.body.truncate(50)
+            td = user_request.created_at.strftime("%d/%m/%Y")
+            td = user_request.updated_at.strftime("%d/%m/%Y")
+            td
+              .dropdown
+                .button.btn-secondary.btn-sm.dropdown-toggle id= "dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                  | Опции
+                .dropdown-menu aria-labelledby="dropdownMenuButton"
+                  .dropdown-item
+                    = button_to "Редактировать", edit_user_request_path(user_request), class: 'btn btn-link btn-sm'
+                  .dropdown-item
+                    = button_to "Удалить", user_request_path(user_request), method: :delete, class: 'btn btn-link btn-sm'
+    .row.justify-content-end
+      .col-1
+        = link_to "Создать", new_user_request_path, class: 'btn btn-primary btn-sm m-r-small'
+  .card-footer
+    = paginate user_requests, theme: 'twitter-bootstrap-4'
