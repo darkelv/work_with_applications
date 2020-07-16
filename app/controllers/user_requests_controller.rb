@@ -4,17 +4,17 @@ class UserRequestsController < ApplicationController
   ]
 
   def index
-    user_requests = UserRequest.with_attached_files.all.page(params[:page]).per(20)
+    user_requests = current_user.user_requests.with_attached_files.page(params[:page]).per(20)
     render locals: { user_requests: user_requests}
   end
 
   def new
-    user_request = UserRequest.new
+    user_request = current_user.user_requests.new
     render locals: {user_request: user_request}
   end
 
   def create
-    user_request = UserRequest.new(user_request_params)
+    user_request = current_user.user_requests.new(user_request_params)
     if user_request.save
       redirect_to user_request_path(user_request), notice: "Заявка создана"
     else
