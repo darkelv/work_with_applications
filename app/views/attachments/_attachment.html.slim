@@ -1,6 +1,6 @@
 .attachments
   - if resource.files.attached?
     - resource.files.each do |file|
-      .form-inline
+      .form-inline id= "attachment-#{file.id}"
         = link_to file.filename.to_s, url_for(file)
         = button_to "Удалить", attachment_path(file), data: { confirm: 'Вы уверены?' }, method: :delete, class: "btn btn-link btn-sm"

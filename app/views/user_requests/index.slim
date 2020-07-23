@@ -25,7 +25,7 @@
                   | Опции
                 .dropdown-menu aria-labelledby="dropdownMenuButton"
                   .dropdown-item
-                    = button_to "Редактировать", edit_user_request_path(user_request), class: 'btn btn-link btn-sm'
+                    = link_to "Редактировать", edit_user_request_path(user_request), class: 'btn btn-link btn-sm'
                   .dropdown-item
                     = button_to "Удалить", user_request_path(user_request), method: :delete, class: 'btn btn-link btn-sm'
     .row.justify-content-end

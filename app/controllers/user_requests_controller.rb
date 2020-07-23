@@ -16,7 +16,7 @@ class UserRequestsController < ApplicationController
   def create
     user_request = UserRequest.new(user_request_params)
     if user_request.save
-      redirect_to user_requests_path, notice: "Заявка создана"
+      redirect_to user_request_path(user_request), notice: "Заявка создана"
     else
       render 'new', locals: {user_request: user_request}
     end

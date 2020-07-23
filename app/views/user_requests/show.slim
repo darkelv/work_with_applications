@@ -1,21 +1,27 @@
-.card
-  .card-header
-    h4
-      | Заявка пользователя
-  .card-body
-    .table-responsive.table-responsive-sm
-      table.table.table-hover.table-skyey.text-small
-        tbody
-          tr
-            td Заголовок
-            td= user_request.title
-          tr
-            td Обращение
-            td= user_request.body
-          tr
-            td Вложения
-            td
-              = render 'attachments/attachment', resource: user_request
-  .card-footer
-    = link_to "Перейти к списку", user_requests_path
+.col-12
+  .card
+    .card-header
+      h4
+        | Заявка пользователя
+        = link_to "Редактировать", edit_user_request_path(user_request), class: 'btn btn-link btn-sm'
 
+    .card-body
+      .table-responsive.table-responsive-sm
+        table.table.table-hover.table-skyey.text-small
+          tbody
+            tr
+              td Заголовок
+              td= user_request.title
+            tr
+              td Обращение
+              td= user_request.body
+            tr
+              td Вложения
+              td
+                = render 'attachments/attachment', resource: user_request
+    .card-footer
+      .row
+        .col-11
+          = link_to "Перейти к списку", user_requests_path
+        .col-1
+          = button_to "Удалить", user_request_path(user_request), method: :delete, class: 'btn btn-danger btn-sm'
