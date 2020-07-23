@@ -1,0 +1,17 @@
+aside.main-sidebar.sidebar-dark-primary.elevation-4
+  a.brand-link href="#{admin_users_path}"
+    span.brand-text.font-weight-light Work_With_Application
+  .sidebar
+    nav.mt-2
+      ul.nav.nav-pills.nav-sidebar.flex-column data-accordion="false" data-widget="treeview" role="menu"
+
+        li.nav-item
+          = link_to admin_users_path, {class: 'nav-link', class_active: 'active'} do
+            i.nav-icon.fas.fa-users
+            p
+              | Пользователи
+        li.nav-item
+          = link_to admin_user_requests_path, {class: 'nav-link', class_active: 'active'} do
+            i.nav-icon.fas.fa-map-marker-alt
+            p
+              | Запросы пользователей

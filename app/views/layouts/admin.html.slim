@@ -1,0 +1,9 @@
+doctype html
+html lang="en"
+  head
+    = javascript_pack_tag 'admin'
+    = stylesheet_pack_tag 'admin', media: 'all', 'data-turbolinks-track': 'reload'
+  body.hold-transition.sidebar-mini
+    .wrapper
+      = render partial: 'layouts/admin/menu'
+      = render partial: 'layouts/admin/body'
