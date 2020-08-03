@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   has_many :user_requests, dependent: :destroy
 
-  validates :email, :password, presence: true
+  validates :email, presence: true
   validates :email, uniqueness: true, format: { with: VALID_EMAIL_FORMAT, message: "Неверный формат почта" }
 
   enum role: ROLES
