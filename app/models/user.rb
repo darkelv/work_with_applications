@@ -14,6 +14,8 @@ class User < ApplicationRecord
 
   enum role: ROLES
 
+  scope :ordered, -> {order(created_at: :desc)}
+
   def employee?
     admin? or implementer? or moderator? or accountant?
   end

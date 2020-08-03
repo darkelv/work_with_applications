@@ -1,12 +1,11 @@
 = content_for :header do
   | Список заявок
 .col-12
-  .card
-    .card-header
-
-    .card-body
+  = render partial: 'search_form', locals: {search_form: search_form}
+  .card.card-primary.card-outline
+    .card-body.p-0
       table.table.table-striped
-        thead.thead-light
+        thead
           tr
             th = "№"
             th = "Заголовок"
@@ -17,7 +16,7 @@
         tbody
           - user_requests.each do |user_request|
             tr
-              td = link_to user_request.id, user_request_path(user_request.id)
+              td = link_to user_request.id, admin_user_request_path(user_request.id)
               td = user_request.title
               td = user_request.body.truncate(50)
               td = user_request.created_at.strftime("%d/%m/%Y")
@@ -28,11 +27,8 @@
                     | Опции
                   .dropdown-menu aria-labelledby="dropdownMenuButton"
                     .dropdown-item
-                      = button_to "Редактировать", edit_user_request_path(user_request), class: 'btn btn-link btn-sm'
+                      = button_to "Редактировать", edit_admin_user_request_path(user_request),  method: :get, class: 'btn btn-link btn-sm'
                     .dropdown-item
-                      = button_to "Удалить", user_request_path(user_request), method: :delete, class: 'btn btn-link btn-sm'
-      .row.justify-content-end
-        .col-1
-          = link_to "Создать", new_user_request_path, class: 'btn btn-primary btn-sm m-r-small'
+                      = button_to "Удалить", admin_user_request_path(user_request), method: :delete, class: 'btn btn-link btn-sm'
     .card-footer
       = paginate user_requests, theme: 'twitter-bootstrap-4'

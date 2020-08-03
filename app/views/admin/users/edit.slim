@@ -1,0 +1,6 @@
+= content_for :header do
+  | Редактирование пользователя ##{user.id}
+.col-12
+  .card
+    .card-body
+      = render partial: 'form', locals:{user: user}

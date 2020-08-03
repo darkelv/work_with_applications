@@ -1,0 +1,13 @@
+.card
+  .card-body
+    = simple_form_for search_form, url: admin_user_requests_path, method: :get, class: 'm-b-none' do |f|
+      .form-row
+        .col-4
+          .input-group
+            = f.input_field :period_start, value: f.object.period_start&.strftime('%d.%m.%Y'), class: "form-control date", placeholder: 'дата от', rel: 'date'
+            = f.input_field :period_end, value: f.object.period_end&.strftime('%d.%m.%Y'), class: "form-control date", placeholder: 'дата до', rel: 'date'
+        .col-8
+          .input-group
+            = f.input_field :keywords,  class: 'form-control', placeholder: 'Поиск'
+            .input-group-append
+              = f.submit 'Найти', class: 'btn btn btn-secondary'
