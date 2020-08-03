@@ -6,4 +6,11 @@ Rails.application.routes.draw do
   resources :user_requests
 
   resources :attachments, only: :destroy
+
+  namespace 'admin' do
+    get '/' => 'user_requests#index'
+
+    resources :user_requests
+    resources :users
+  end
 end
