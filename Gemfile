@@ -21,7 +21,8 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'devise'
+gem 'i18n'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 # Views
@@ -63,8 +64,8 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'launchy'
   gem 'rails-controller-testing'
+  gem 'launchy'
   gem 'shoulda-matchers'
 end
 

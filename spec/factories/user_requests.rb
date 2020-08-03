@@ -2,6 +2,7 @@ FactoryBot.define do
   factory :user_request do
     title { "MyString" }
     body { "MyText" }
+    user
 
     trait :invalid do
       title { nil }
