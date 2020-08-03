@@ -1,0 +1,6 @@
+= content_for :header do
+  | Дополнить запрос ##{user_request.id}
+.col-12
+  .card
+    .card-body
+      = render partial: 'form', locals:{user_request: user_request}

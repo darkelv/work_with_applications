@@ -1,8 +1,9 @@
 class User < ApplicationRecord
 
   VALID_EMAIL_FORMAT = /.+@.+\..+/i
+
   ROLES = { user: 0, admin: 1, implementer: 2, moderator: 3, accountant: 4 }
-  
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -13,5 +14,9 @@ class User < ApplicationRecord
 
   enum role: ROLES
 
+  scope :ordered, -> {order(created_at: :desc)}
 
+  def employee?
+    admin? or implementer? or moderator? or accountant?
+  end
 end
