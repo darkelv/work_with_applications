@@ -1,7 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe UserRequestsController, type: :controller do
-  let(:user_request) { create(:user_request) }
+  let(:user) { create(:user) }
+  let(:user_request) { create(:user_request, user: user) }
+
+  before { login(user) }
 
   describe 'GET#Index' do
     let(:user_requests) { create_list(:user_request, 3) }

@@ -1,0 +1,23 @@
+= content_for :header do
+  = "Заявка ##{user_request.id} "
+  = link_to edit_admin_user_request_path(user_request) do
+    i.fa.fa-edit.fa-sm
+.col-12
+  .card
+    .card-body
+      .table-responsive.table-responsive-sm
+        table.table.table-hover.table-skyey.text-small
+          tbody
+            tr
+              td Заголовок
+              td= user_request.title
+            tr
+              td Обращение
+              td= user_request.body
+            tr
+              td Вложения
+              td
+                = render 'attachments/attachment', resource: user_request
+    .card-footer
+      = link_to "Перейти к списку", admin_user_requests_path
+
